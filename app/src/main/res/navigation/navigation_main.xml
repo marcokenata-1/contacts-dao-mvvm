@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/dataInsert">
+
+    <fragment
+        android:id="@+id/dataInsert"
+        android:name="com.tktpl.contactsmvvm.ui.insert.DataInsert"
+        android:label="data_insert_fragment"
+        tools:layout="@layout/data_insert_fragment" />
+    <fragment
+        android:id="@+id/dataDisplay"
+        android:name="com.tktpl.contactsmvvm.ui.display.DataDisplay"
+        android:label="data_display_fragment"
+        tools:layout="@layout/data_display_fragment" >
+        <action
+            android:id="@+id/action_dataDisplay_to_dataInsert"
+            app:destination="@id/dataInsert"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+    </fragment>
+</navigation>
