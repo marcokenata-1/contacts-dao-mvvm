@@ -19,9 +19,9 @@ class DataDisplayViewModel(
         coroutineContext.cancel()
     }
 
-    val dataDisplayer = MutableLiveData<ContactsEntry>()
+    val dataDisplayer = MutableLiveData<List<ContactsEntry>>()
 
     fun bindUI() = launch {
-        dataDisplayer.postValue(contactRepositoryImpl.dataDisplayer().value)
+        dataDisplayer.postValue(contactRepositoryImpl.dataDisplayer())
     }
 }

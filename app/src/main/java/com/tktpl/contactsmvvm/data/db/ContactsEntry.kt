@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "contacts_insertion")
 data class ContactsEntry (
     val name: String,
-    val number: Int,
+    val number: String,
     val relation: String
 ){
     @PrimaryKey(autoGenerate = true)

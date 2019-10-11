@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 
 import com.tktpl.contactsmvvm.R
+import com.tktpl.contactsmvvm.ui.adapter.ContactAdapter
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.data_display_fragment.*
 import javax.inject.Inject
 
 class DataDisplay : Fragment() {
@@ -17,6 +20,8 @@ class DataDisplay : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: DataDisplayViewModelFactory
+
+    var adapter : ContactAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,11 @@ class DataDisplay : Fragment() {
         AndroidSupportInjection.inject(this)
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(DataDisplayViewModel::class.java)
         viewModel.bindUI()
+
+        viewModel.dataDisplayer.observe(this, Observer {value ->
+            adapter = ContactAdapter(this@DataDisplay.context,value)
+            gvContactsFragment.adapter = adapter
+        })
     }
 
 }

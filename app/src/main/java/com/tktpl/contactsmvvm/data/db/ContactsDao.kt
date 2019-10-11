@@ -12,5 +12,5 @@ interface ContactsDao {
     fun insertContact(contactsEntry: ContactsEntry)
 
     @Query("select * from contacts_insertion")
-    fun getContacts() : LiveData<ContactsEntry>
+    fun getContacts() : List<ContactsEntry>
 }

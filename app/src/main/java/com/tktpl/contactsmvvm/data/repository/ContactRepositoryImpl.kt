@@ -18,9 +18,9 @@ class ContactRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun dataDisplayer(): LiveData<out ContactsEntry> {
+    override suspend fun dataDisplayer(): List<ContactsEntry> {
         return withContext(Dispatchers.IO){
-            contactsDao.getContacts()
+            return@withContext contactsDao.getContacts()
         }
     }
 }

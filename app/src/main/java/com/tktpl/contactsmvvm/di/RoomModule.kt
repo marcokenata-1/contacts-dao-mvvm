@@ -20,7 +20,9 @@ class RoomModule {
             application,
             ContactsDatabase::class.java, "contacts.db"
         )
-            .allowMainThreadQueries().build()
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
 

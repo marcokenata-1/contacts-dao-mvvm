@@ -6,5 +6,5 @@ import com.tktpl.contactsmvvm.data.db.ContactsEntry
 interface ContactRepository {
     suspend fun dataInsertion(contactsEntry: ContactsEntry)
 
-    suspend fun dataDisplayer() : LiveData<out ContactsEntry>
+    suspend fun dataDisplayer() : List<ContactsEntry>
 }

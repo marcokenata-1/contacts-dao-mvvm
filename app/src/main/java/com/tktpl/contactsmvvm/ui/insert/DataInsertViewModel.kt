@@ -1,5 +1,6 @@
 package com.tktpl.contactsmvvm.ui.insert
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.tktpl.contactsmvvm.data.db.ContactsEntry
 import com.tktpl.contactsmvvm.data.repository.ContactRepositoryImpl
@@ -19,7 +20,7 @@ class DataInsertViewModel(
         coroutineContext.cancel()
     }
 
-    fun bindUI(name: String, number: Int, relation: String) = launch {
+    fun bindUI(name: String, number:String, relation: String) = launch {
         contactRepositoryImpl.dataInsertion(ContactsEntry(name, number, relation))
     }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dataInsert"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Add Contact"
+        />
+    <item
+        android:id="@+id/dataDisplay"
+        android:icon="@drawable/ic_contacts_black_24dp"
+        android:title="Contacts"
+        />
+</menu>
