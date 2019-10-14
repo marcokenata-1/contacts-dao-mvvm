@@ -22,6 +22,6 @@ class DataDisplayViewModel(
     val dataDisplayer = MutableLiveData<List<ContactsEntry>>()
 
     fun bindUI() = launch {
-        dataDisplayer.postValue(contactRepositoryImpl.dataDisplayer())
+        dataDisplayer.postValue(contactRepositoryImpl.dataDisplayer().value)
     }
 }

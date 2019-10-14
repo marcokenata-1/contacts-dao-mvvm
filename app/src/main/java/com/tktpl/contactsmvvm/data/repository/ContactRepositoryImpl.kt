@@ -1,6 +1,7 @@
 package com.tktpl.contactsmvvm.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.tktpl.contactsmvvm.data.db.ContactsDao
 import com.tktpl.contactsmvvm.data.db.ContactsEntry
 import dagger.Module
@@ -18,9 +19,12 @@ class ContactRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun dataDisplayer(): List<ContactsEntry> {
+    val dataDisplayer = MutableLiveData<List<ContactsEntry>>()
+
+    override suspend fun dataDisplayer(): MutableLiveData<List<ContactsEntry>> {
         return withContext(Dispatchers.IO){
-            return@withContext contactsDao.getContacts()
+            dataDisplayer.postValue(contactsDao.getContacts())
+            return@withContext dataDisplayer
         }
     }
 }
